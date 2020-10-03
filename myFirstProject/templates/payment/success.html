@@ -1,0 +1,13 @@
+{% extends 'payment/template.html' %}
+{% load static%}
+
+    {% block content %}
+    
+   <div id= 'box'> 
+   <img id='success-icon' src="{{payment.charity.url}">
+   <h4>Thank you for your contribution of ${{amount}}! </h4>
+   <p> Your support helps me fulfill my dream. </p>
+   </div>
+   <a class="myButton"  href="{%url 'index1'%}">Back to donation page </a>
+
+    {% endblock content %}

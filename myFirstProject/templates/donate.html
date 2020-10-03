@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{%block title%}
+Donate Page
+{%endblock title%}
+
+{%block content%}
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Give Donation</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Donate</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+  
+        <div class="row mt-4 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-5">
+         <h3 class="text-center">Make A Charitable Donate Here!</h3><hr>
+           <form action="" method="post" role="form" >
+               {% csrf_token %} 
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+             <div class="col-md-6 form-group">
+                  <input type="date" name="transaction_date" class="form-control" id="date" placeholder="date" data-rule="minlen:4" data-msg="Please enter date" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="number" name="amount" class="form-control" id="amount" placeholder="Enter Amount" data-rule="minlen:4" data-msg="Please enter amount" />
+                  <div class="validate"></div>
+                </div>
+             <div class="col-md-6 form-group">
+                  <input type="number" name="phn_number" class="form-control" id="number" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter a valid mobile number" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                <textarea class="form-control" name="address" rows="2" data-rule="required" data-msg="Please write something for us" placeholder="Your Address"></textarea>
+                <div class="validate"></div>
+              </div>
+                
+                 </div>
+              
+              <div class="text-center" style="margin-bottom:30px;"><button type="submit" class="btn btn-success">Donate</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+{%endblock%}

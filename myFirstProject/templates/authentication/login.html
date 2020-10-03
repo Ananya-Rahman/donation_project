@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{%block title%}
+Login Page
+{%endblock title%}
+
+{%block content%}
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-center">Login Your Account</h2>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    
+    <section id="contact" class="contact">
+      <div class="container">
+            
+{% comment %} 
+{% csrf_token %}  form submit korte je app e takbo sei app k hit krbe sei route k submit ble dibe
+ {% endcomment %}
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-4">
+          <h3 class="text-center"> Login Your Account </h3><hr>
+          {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{ message }}
+            </div>
+          {% endfor %}
+      
+           <form action="" method="post" role="form" >
+               {% csrf_token %} 
+              
+             
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="User Name"/>
+                <div class="validate"></div>
+              </div>
+                
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+               
+              
+              <div class="text-center"><br>
+              <button type="submit" class="btn btn-success btn-block">Login</button></div>
+            </form><br>
+            <small>Dont have an account <a href="{% url 'registration' %}"> Register Now! </a> </small>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+{%endblock%}

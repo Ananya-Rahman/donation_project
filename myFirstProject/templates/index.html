@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% load static %}
+{%block title%}
+Home Page
+{%endblock title%}
+
+{%block content %}
+{% include 'slider.html' with sliderdata=Slider%}
+
+
+{% comment %} <div class="jumbotron jumbotron-fluid">
+<h2 class="text-center text-danger">Create Home page</h2><br>
+<p class="text-center text-success">Name:{{name}} </p>
+<p class="text-center text-success ">Age:{{age}} </p>
+<p class="text-center text-success">Contact:{{phone}} </p>
+
+<ul class='list' text-center>
+{% for row in address %}
+<li class='list-item'>{{row}} </li>
+{% endfor %}
+
+</ul>
+</div> {% endcomment %}
+<section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</strong></h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2>{{About.title}}</h2> 
+            <img src="{{About.image.url}}"style="height:200px;width:370px;">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <p>
+            {{About.description}}
+             
+            </p>
+           
+            
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Donation post Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Donation</strong></h2>
+        </div>
+
+        <div class="row ">
+        {% for donation in Donations %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 20px;">
+         
+            <div class="icon-box iconbox-blue">
+              <div class="">
+                 <img src="{{donation.image.url}}" class="img-fluid" alt="image" style="height:100px;width:250px;">
+                
+            </div>
+              <h4><a href="#">{{donation.title|capfirst}}</a></h4>
+              <p>{{donation.description|truncatechars:100 }} </p><br>
+              
+                {% comment %} <button type="submit" class="btn btn-success btn-block">Donate</button> {% endcomment %}
+                <button type="submit" class="btn btn-outline-success btn-block"> 
+                 <a href="{% url 'index1'%}" >Donate</a>
+                {% comment %} <a href="{% url 'donate' %}">Donate</a> {% endcomment %}
+                </button>
+            </div> <br>
+          </div>
+            {% endfor %}
+          </div>
+
+          
+    </section><!-- End donation post section -->
+
+  
+
+    <!-- ======= Our Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Donors Profile</h2>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+
+          {% for donors in Donor  %}
+
+          <div class="col-lg-4 col-md-12">
+          <a href="{{donors.link}}" target="_blank">
+            <div class="client-logo">
+              <img src="{{donors.image.url}}" class="img-fluid" alt="{{donors.name}}" style="height:220px;width:250px;">
+            </div>
+            </a>
+          </div>
+
+         {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Our Clients Section -->
+
+{%endblock%}

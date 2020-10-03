@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{%block title%}
+Registration Page
+{%endblock title%}
+
+{%block content%}
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-center">Register a new account</h2>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    
+
+    <section id="contact" class="contact">
+      <div class="container">
+       
+{% comment %} 
+{% csrf_token %}  form submit korte je app e takbo sei app k hit krbe sei route k submit ble dibe
+ {% endcomment %}
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-4">
+          <h3 class="text-center"> Create an account</h3><hr>
+
+{% comment %} message framework {% endcomment %}
+
+          {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{ message }}
+            </div>
+          {% endfor %}
+{% comment %} End message framework {% endcomment %}
+
+           <form action="" method="post" role="form" >
+               {% csrf_token %} 
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Full Name"/>
+                <div class="validate"></div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address"/>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password"  />
+                <div class="validate"></div>
+              </div>
+                <button type="submit" class="btn btn-success btn-block">Register</button>
+            </form><br>
+            <small>Already have an account <a href="{% url 'login' %}"> Login </a> </small>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+{%endblock%}
