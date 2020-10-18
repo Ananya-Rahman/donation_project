@@ -67,12 +67,33 @@ Home Page
               <p>{{donation.description|truncatechars:100 }} </p><br>
               
                 {% comment %} <button type="submit" class="btn btn-success btn-block">Donate</button> {% endcomment %}
-                <button type="submit" class="btn btn-outline-success btn-block"> 
-                 <a href="{% url 'index1'%}" >Donate</a>
+                
+                 <a href="{% url 'index1' donation.id %}" >
+                 <button type="submit" class="btn btn-outline-success btn-block"> 
+                 Donate
+                 </button>
+                 </a>
                 {% comment %} <a href="{% url 'donate' %}">Donate</a> {% endcomment %}
-                </button>
-            </div> <br>
-          </div>
+                
+               
+              <div class="row justify-content-md-center mt-5">
+                <div class=" col-sm-6">
+                
+                  <p >  Raised Amount   </p>
+                   <h5 style="color:green;"> {{ donation.raised_amount }} </h5>
+                  
+                </div>
+                
+                <div class=" col-sm-6">
+               <p>  Goal Amount   </p>
+                   <h5 style="color:red;">{{ donation.goal_amount }}</h5>
+              
+                </div>
+              </div>
+            </div>
+
+            </div> 
+         
             {% endfor %}
           </div>
 

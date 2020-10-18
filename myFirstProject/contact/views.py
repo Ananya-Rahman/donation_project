@@ -12,6 +12,7 @@ def contact(request):
    
         contactdata=Contact(name= name, email=email, message=message)
         contactdata.save()
+        messages.success(request, 'Thanks For Your Message')
         
 
             
