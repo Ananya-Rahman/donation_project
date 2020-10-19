@@ -48,6 +48,7 @@ Home Page
 
     <!-- ======= Donation post Section ======= -->
     <section id="services" class="services section-bg">
+
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -63,7 +64,9 @@ Home Page
                  <img src="{{donation.image.url}}" class="img-fluid" alt="image" style="height:100px;width:250px;">
                 
             </div>
-              <h4><a href="#">{{donation.title|capfirst}}</a></h4>
+                            
+               
+              <a href="{% url 'donation_detail' donation.id %}"><h4>{{donation.title|capfirst}} </h4></a>
               <p>{{donation.description|truncatechars:100 }} </p><br>
               
                 {% comment %} <button type="submit" class="btn btn-success btn-block">Donate</button> {% endcomment %}

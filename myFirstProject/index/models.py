@@ -30,6 +30,8 @@ class Donation(models.Model):
     image = models.ImageField(upload_to='donation/', blank= False)
     title = models.CharField(max_length=100, blank=False)
     description = models.TextField(max_length=700, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     raised_amount= models.FloatField(null=True, blank=True) 
