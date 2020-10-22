@@ -9,4 +9,11 @@ from .models import Donation
 admin.site.register(About)
 admin.site.register(Slider)
 admin.site.register(Donor)
-admin.site.register(Donation)
+
+
+class AdminDonation(admin.ModelAdmin):
+    model = Donation
+    list_display = ('title', 'start_date', 'end_date','raised_amount', 'goal_amount')
+
+
+admin.site.register(Donation, AdminDonation)
